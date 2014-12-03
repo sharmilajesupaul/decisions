@@ -12,7 +12,7 @@ get '/' do
     p user_id
     redirect "/users/#{user_id}"
   else
-    p session
+    # p sessions
     erb :index
   end
 end
@@ -35,12 +35,17 @@ get '/users/:id/posts/new' do
 end
 
 post '/sessions' do
-  @error = false
-  if @user = User.find_by(username: params[:username])
+  # @error = false
+  p params[:username]
+  p params[:password]
+  @user = User.find_by(username: params[:username])
+  p @user
+  p @user.authenticate(params[:password])
+  if @user
     if @user.authenticate(params[:password])
       session['user_id'] = @user.id
 
-      redirect "/profile/#{@user.id}"
+      redirect "/users/#{@user.id}"
     end
   else
     @error = true
