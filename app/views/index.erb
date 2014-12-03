@@ -23,8 +23,8 @@
           <!-- FIX DUMMY LINKS -->
           <ul>
             <li><i class="fa fa-home fa-2x"></i></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="">Friends</a></li>
+            <!-- <li><a href="#">Profile</a></li> -->
+            <!-- <li><a href="">Friends</a></li> -->
           </ul>
         </div>
       </div>
@@ -33,22 +33,29 @@
         <h1>Decisions</h1>
       </div>
 
-      <div class="container">
-        <h3>Login:</h3>
-        <!-- NEED USER AUTH FORM -->
-        <form id="sign-in" method="post" action="/sessions">
-          <label class="label" for="email">Email</label>
-          <input type="email" name="email" placeholder="e.g., me@example.com" value="<%= @email %>" required><br>
-          <label class="label" for="password">Password</label>
-          <input type="password" name="password" placeholder="6 or more characters" required>
-          <br>
-          <div class="submit"><input type="submit" value="Sign In"></div>
-        </form>
+      <div class="row">
+        <div class="col-md-4">
+          <!-- WTTTTTFFFF WHY ISNT THIS IMAGE WORKING -->
+          <a href="/redirect_auth_url" style="padding: 10%;"><img src="http://i.imgur.com/IQa7OjU.png"></a>
       </div>
 
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
-      <script src="js/bootstrap.min.js"></script>
-    </body>
-    </html>
+      <div class="col-md-2"><h2>OR</h2></div>
+
+      <div class="col-md-4">
+        <h3>Login:</h3>
+        <form id="sign-in" method="post" action="/sessions">
+          <label class="label" for="username" style="color: black;">Username:</label>
+          <input type="username" name="usernames" placeholder="e.g.,I'm so cool" required><br>
+          <label class="label" for="password" style="color: black;">Password:</label>
+          <input type="password" name="password" placeholder="6 or more characters" required><br>
+          <div class="submit"><input type="submit" value="Sign In"></div>
+        </form>
+        </div>
+      </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+  </html>

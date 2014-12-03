@@ -1,7 +1,7 @@
 require 'Faker'
 # Creates 5 users
 5.times do
-  User.create(username: Faker::Internet.user_name, password: 'password')
+  User.create(username: Faker::Internet.user_name, password: 'password', display_name: Faker::Name.name)
 end
 
 # Creates Posts for each user
@@ -14,3 +14,13 @@ boolean = [true, false]
 Weight.all.each do |weight|
   weight.update_attributes(content: Faker::Lorem.sentence, pro: boolean.sample)
 end
+
+user_ids = []
+User.all.each_index do |index|
+  user_ids << index+1
+end
+
+Post.all.each do |post|
+  post.update_attributes(user_id: User.find(user_ids.sample).id)
+end
+

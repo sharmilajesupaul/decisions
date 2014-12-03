@@ -1,0 +1,54 @@
+<!-- TABLE TEMPLATE -->
+<!-- Locals: weights: - if pro == true, then pros side of the table.  -->
+<!--                  - display weight.user.display_name below each pro & con. -->
+<!--
+ posts: - if display table.title and table.user.display_name  -->
+
+<!-- <table class="table table-striped">
+   <caption>Striped Table Layout</caption>
+   <thead>
+      <tr>
+        <th>Name</th>
+        <th>City</th>
+        <th>Pincode</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+        <td>Tanmay</td>
+        <td>Bangalore</td>
+        <td>560001</td>
+      </tr>
+      <tr>
+        <td>Sachin</td>
+        <td>Mumbai</td>
+        <td>400003</td>
+      </tr>
+      <tr>
+        <td>Uma</td>
+        <td>Pune</td>
+        <td>411027</td>
+      </tr>
+   </tbody>
+ </table> -->
+
+ <table class="table table-striped">
+  <caption><%= post.title %><span><%= post_user %></span></caption>
+  <thead>
+    <tr>
+      <th>Pros</th>
+      <th>Cons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% weights.each do |weight| %>
+      <tr>
+        <% if weight.pro %>
+          <td><%= erb :_pro, locals {weight: weight}  %></td>
+        <% else %>
+          <td><%= erb :_con, locals {weight: weight}  %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
