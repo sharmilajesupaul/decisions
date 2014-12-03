@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
 # PostgreSQL driver
 gem 'pg'
 
@@ -17,6 +19,8 @@ gem 'shotgun'
 gem 'faker'
 gem 'pry'
 gem 'httparty'
+gem 'json'
+gem 'bcrypt-ruby'
 
 group :test do
   gem 'shoulda-matchers'
