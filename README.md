@@ -25,4 +25,3 @@ rake generate:model      # Create an empty model in app/models, e.g., rake gener
 - It has meaningful test coverage
 - It is deployed
 
-Once you've come up with an idea, get one of your teachers to approve it.
