@@ -1,17 +1,17 @@
 <div class="row">
   <div class="nav">
     <ul>
-      <li><i class="fa fa-home fa-2x"></i></li>
-      <li><a href="#">Profile</a></li>
+      <li><a href='/'><i class="fa fa-home fa-2x"></i></a></li>
+      <!-- <li><a href="#">Profile</a></li> -->
       <li><a href="">Friends</a></li>
       <li class="right"><%= @user.display_name %></li>
-<!--       <li><a href="/" title="Log Out." style="background-color:#FFFFFF;color:#000000;text-decoration:none"><i class="fa fa-times fa-2x"></i></a></li> -->
-      <li>
-        <form id="sign-out" action="/sessions/<%= current_user.id %>" method="post" style="float: right;">
+      <li><a href="/" title="Log Out." style="background-color:#FFFFFF;color:#000000;text-decoration:none"><i class="fa fa-times fa-2x"></i></a></li>
+      <!-- <li>
+        <form id="sign-out" action="/sessions/<%= @user.id %>" method="post" style="float: right;">
           <input name="_method" type="hidden" value="delete" />
           <input type="submit" value="Sign Out">
         </form>
-      </li>
+      </li> -->
     </ul>
   </div>
 </div>
