@@ -6,6 +6,9 @@
       <li><a href="">Friends</a></li>
       <li class="right"><%= @user.display_name %></li>
       <li><a href="/" title="Log Out." style="background-color:#FFFFFF;color:#000000;text-decoration:none"><i class="fa fa-times fa-2x"></i></a></li>
+      <!-- MAKE ROUTES -->
+      <li><a href="/user/<%= @user.id %>/posts/new">New Table</a></li>
+      <!-- <li><a href="/user/<%# @user.id %>/weights/new">Add Pro or Con</a></li> -->
       <!-- <li>
         <form id="sign-out" action="/sessions/<%= @user.id %>" method="post" style="float: right;">
           <input name="_method" type="hidden" value="delete" />
@@ -16,24 +19,22 @@
   </div>
 </div>
 
-<div class="row">
-
-  <div class="col-md-2">
-    <ul>
-      <!-- NEED TO MAKE ROUTES -->
-      <li><a href="/user/<%= @user.id %>/posts/new">New Table</a></li>
-      <li><a href="/user/<%= @user.id %>/weights/new">Add Pro or Con</a></li>
+<div class="container">
+    <div class="page-header" style="margin-top: 10%;">
+        <h1 id="timeline"><%= @user.display_name %>'s Timeline</h1>
+        <p><a href="/user/<%= @user.id %>/posts/new">New Table</a></p>
+    </div>
+    <ul class="timeline">
+      <% @timeline_objs.each do |object| %>
+        <% if object.class == Post %>
+          <li><%= erb :_table_info, locals: { post: object } %></li>
+        <% else %>
+          <% if object.pro %>
+            <li class="timeline-inverted"><%= erb :_pro, locals: { weight: object } %></li>
+          <% else %>
+            <li class="timeline-inverted"><%= erb :_con, locals: {weight: @weights.first } %></li>
+          <% end %>
+        <% end %>
+      <% end %>
     </ul>
-  </div>
-
-  <div class="col-md-6 col-md-offset-3">
-    <h3>Recent Contributions: </h3>
-    <% @weights.each do |weight| %>
-    <% if weight.pro %>
-    <%= erb :_pro, locals: {weight: weight } %>
-    <% else %>
-    <%= erb :_con, locals: {weight: weight } %>
-    <% end %>
-    <% end %>
-  </div>
 </div>

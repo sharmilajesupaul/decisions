@@ -18,11 +18,16 @@ get '/' do
 end
 
 get '/users/:id' do
+  @all_the_things = []
   user_id = params[:id]
   @user = User.find(user_id)
   @users = User.all
   @posts = Post.all
   @weights = Weight.all
+
+  @all_the_things << @posts.flatten
+  @all_the_things << @weights.flatten
+  @timeline_objs = @all_the_things.flatten.sort_by{|thing| thing.created_at}.reverse
   # profile page
   # CREATE profile.erb
   erb :profile
