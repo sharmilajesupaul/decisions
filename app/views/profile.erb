@@ -28,14 +28,14 @@
         <p><a href="/user/<%= @user.id %>/posts/new">New Table</a></p>
     </div>
 
-    <div class="new_table">
+    <div id="new_table">
       <%= erb :_table_form, locals: { user: @user } %>
     </div>
 
-    <ul class="timeline">
+    <ul class="timeline" style="margin-top: 15%;" id='timeline'>
       <% @timeline_objs.each do |object| %>
         <% if object.class == Post %>
-          <li><%= erb :_table_info, locals: { post: object } %></li>
+          <li id='table_item'><%= erb :_table_info, locals: { post: object } %></li>
         <% else %>
           <% if object.pro %>
             <li class="timeline-inverted"><%= erb :_pro, locals: { weight: object } %></li>

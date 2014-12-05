@@ -10,9 +10,13 @@
                   <span class="pull-right"><a href="#">Register</a></span><span><a href="#">Need help?</a></span>
                 </div>
               </form> -->
-<form id="new_post" action="/<%= user.id %>/posts/new" method="post" class="form col-md-4 center-block">
-  <input type="text" name="title" class="form-control input-md" placeholder="Title" required><br>
-  <input type="text" name="description" class="form-control input-md" placeholder="Description" required><br>
+<form action="/posts/new" method="post" class="form col-md-4 center-block" id="new_post" >
 
-  <button type="submit" class="btn btn-primary btn-lg btn-block" id="new_table_submit">Create Table</button>
+  <input type="text" name="post[title]" class="form-control input-md" placeholder="Title" required />
+  <br>
+
+  <input type="text" name="post[content]" class="form-control input-md" placeholder="Description" required />
+  <br>
+
+  <button type='submit' class="btn btn-primary btn-lg btn-block"> Create Table </button>
 </form>
