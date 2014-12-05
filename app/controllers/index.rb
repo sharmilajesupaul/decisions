@@ -53,6 +53,28 @@ post '/posts/new' do
   # erb :_table_info, layout: false, locals { post: new_post }
 end
 
+# get '/weights/new' do
+
+#   erb :_pro_form, layout: false
+# end
+
+
+# post '/weights/new' do
+#   @user = User.find(session['user_id'])
+#   # puts params[:post]
+#   new_weight = Weight.create(params[:weight])
+#   @user.weights << new_weight
+
+
+#   content_type :json
+#   # p params[:title]
+#   # p params[:content]
+#   # p new_post
+#   @user.weights.find(new_weight.id).to_json
+#   # redirect "/users/#{@user.id}"
+#   # erb :_table_info, layout: false, locals { post: new_post }
+# end
+
 
 
 

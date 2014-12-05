@@ -35,7 +35,7 @@
     <ul class="timeline" style="margin-top: 15%;" id='timeline'>
       <% @timeline_objs.each do |object| %>
         <% if object.class == Post %>
-          <li id='table_item'><%= erb :_table_info, locals: { post: object } %></li>
+          <li><%= erb :_table_info, locals: { post: object } %></li>
         <% else %>
           <% if object.pro %>
             <li class="timeline-inverted"><%= erb :_pro, locals: { weight: object } %></li>

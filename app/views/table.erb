@@ -129,12 +129,16 @@
         </div>
     </div>
 </div>
+<!-- ERB -->
+<div>
+    <%= erb :_pro_form %>
+</div>
 <!-- /.row -->
-<div class="container">
+<div class="container" style="margin-top:15%">
     <ul class="timeline">
       <% @weights.each do |object| %>
         <% if object.pro %>
-            <li><%= erb :_pro,  locals: { weight: object } %></li>
+            <li id='pro_item'><%= erb :_pro,  locals: { weight: object } %></li>
         <% else %>
             <li class="timeline-inverted"><%= erb :_con,  locals: {weight: @weights.first } %></li>
         <% end %>
