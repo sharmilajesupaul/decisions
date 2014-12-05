@@ -28,10 +28,39 @@ get '/users/:id' do
   @all_the_things << @posts.flatten
   @all_the_things << @weights.flatten
   @timeline_objs = @all_the_things.flatten.sort_by{|thing| thing.created_at}.reverse
-  # profile page
-  # CREATE profile.erb
+  p @timeline_objs
   erb :profile
 end
+
+post '/users/:id/posts/new' do
+  @user = User.find(params[:id])
+
+
+  @user.posts.create()
+end
+
+
+
+
+
+get '/users/:id/posts/:post_id' do
+  @user = User.find(params[:id])
+  @post = Post.find(params[:post_id])
+  @weights = @post.weights
+  @pros = []
+  @cons = []
+  @weights.each do |weight|
+    if weight.pro == true
+      @pros << weight
+    else
+      @cons << weight
+    end
+  end
+
+  erb :table
+end
+########### LOGIN ################
+
 
 get '/users/:id/posts/new' do
   # create a new pros and cons table
@@ -65,7 +94,9 @@ delete '/sessions/:id' do
 end
 
 
-get '/redirect_auth_url' do
+ ############### Google Login #######
+
+ get '/redirect_auth_url' do
   client_id = ENV["CLIENT_ID"]
   scope_url = "https://www.googleapis.com/auth/plus.login&state=12345&approval_prompt=force"
   redirect_uri = "http://localhost:9393/logged_in"
@@ -78,13 +109,13 @@ get '/logged_in' do
   # p params # these are your string query parameters (your authorization code will be in here!)
 
   token_response = HTTParty.post("https://accounts.google.com/o/oauth2/token",
-                                body: {
-                                      code: params[:code],
-                                      client_id: ENV["CLIENT_ID"],
-                                      client_secret: ENV["SECRET_KEY"],
+    body: {
+      code: params[:code],
+      client_id: ENV["CLIENT_ID"],
+      client_secret: ENV["SECRET_KEY"],
                                       redirect_uri: "http://localhost:9393/logged_in", # what you specify in your developer console (this matches the route we are currently in)
                                       grant_type: "authorization_code"
-                                })
+                                      })
 
   # p token_response # returns an access_token, expires_in, refresh_token (optionally)
   # in order to make a request to the Google + API, we need to enable it in our Google Developer Console

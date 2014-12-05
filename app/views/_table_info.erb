@@ -1,7 +1,7 @@
  <div class="timeline-badge table"><i class="glyphicon glyphicon-chevron-left"></i></div>
  <div class="timeline-panel">
   <div class="timeline-heading">
-    <h4 class="timeline-title"><%= post.title %></h4>
+    <h4 class="timeline-title"><a href="/users/<%= post.user_id %>/posts/<%= post.id %>"><%= post.title %></a></h4>
     <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <%= post.created_at %></small></p>
   </div>
   <div class="timeline-body">
