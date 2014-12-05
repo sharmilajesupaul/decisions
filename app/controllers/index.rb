@@ -28,15 +28,52 @@ get '/users/:id' do
   @all_the_things << @posts.flatten
   @all_the_things << @weights.flatten
   @timeline_objs = @all_the_things.flatten.sort_by{|thing| thing.created_at}.reverse
-  p @timeline_objs
+  # p @timeline_objss
   erb :profile
 end
 
-post '/users/:id/posts/new' do
-  @user = User.find(params[:id])
-  content_type :json
-  @user.posts.create(title: params[:title], content: params[:description]).to_json
+get '/posts/new' do
+
+  erb :_table_form, layout: false
 end
+
+post '/posts/new' do
+  @user = User.find(session['user_id'])
+  # puts params[:post]
+  new_post = Post.create(params[:post])
+  @user.posts << new_post
+
+
+  content_type :json
+  # p params[:title]
+  # p params[:content]
+  # p new_post
+  @user.posts.find(new_post.id).to_json
+  # redirect "/users/#{@user.id}"
+  # erb :_table_info, layout: false, locals { post: new_post }
+end
+
+# get '/weights/new' do
+
+#   erb :_pro_form, layout: false
+# end
+
+
+# post '/weights/new' do
+#   @user = User.find(session['user_id'])
+#   # puts params[:post]
+#   new_weight = Weight.create(params[:weight])
+#   @user.weights << new_weight
+
+
+#   content_type :json
+#   # p params[:title]
+#   # p params[:content]
+#   # p new_post
+#   @user.weights.find(new_weight.id).to_json
+#   # redirect "/users/#{@user.id}"
+#   # erb :_table_info, layout: false, locals { post: new_post }
+# end
 
 
 
