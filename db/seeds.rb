@@ -24,3 +24,11 @@ Post.all.each do |post|
   post.update_attributes(user_id: User.find(user_ids.sample).id)
 end
 
+
+User.all.each do |user|
+  user.posts.each do |post|
+    10.times { post.weights << Weight.create(content: Faker::Lorem.sentence, pro: boolean.sample, user: User.find(user_ids.sample)) }
+  end
+end
+
+
