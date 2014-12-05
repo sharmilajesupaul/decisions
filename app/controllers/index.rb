@@ -34,9 +34,8 @@ end
 
 post '/users/:id/posts/new' do
   @user = User.find(params[:id])
-
-
-  @user.posts.create()
+  content_type :json
+  @user.posts.create(title: params[:title], content: params[:description]).to_json
 end
 
 

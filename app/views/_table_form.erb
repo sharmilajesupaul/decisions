@@ -1,0 +1,18 @@
+<!--               <form class="form col-md-12 center-block" id="sign-in" method="post" action="/sessions">
+                <div class="form-group">
+                  <input type="text" name="username" class="form-control input-lg" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                  <input type="password" name="password" class="form-control input-lg" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-primary btn-lg btn-block">Sign In</button>
+                  <span class="pull-right"><a href="#">Register</a></span><span><a href="#">Need help?</a></span>
+                </div>
+              </form> -->
+<form id="new_post" action="/<%= user.id %>/posts/new" method="post" class="form col-md-4 center-block">
+  <input type="text" name="title" class="form-control input-md" placeholder="Title" required><br>
+  <input type="text" name="description" class="form-control input-md" placeholder="Description" required><br>
+
+  <button type="submit" class="btn btn-primary btn-lg btn-block" id="new_table_submit">Create Table</button>
+</form>
