@@ -42,8 +42,7 @@ Bugs to Fix
 - [ ] Table creation is not retaining User ID
 - [ ] Broken Nav Link - Sign Out
 - [ ] Dummy Links Everywhere
-
-
+- [ ] Heroku Layout Issue
 
 
 
