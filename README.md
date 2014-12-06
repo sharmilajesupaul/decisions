@@ -3,7 +3,7 @@
 Decisions
 =========
 
-pros and cons app
+####A simple, socially integrated, pros and cons table
 
 ### Quickstart
 
@@ -24,4 +24,28 @@ rake generate:model      # Create an empty model in app/models, e.g., rake gener
 - It utilizes JavaScript
 - It has meaningful test coverage
 - It is deployed
+
+_____________________________________________
+
+Features Added:
+- User timeline
+- Table data rendering
+- Ajax Table Creation
+
+
+Coming Soon:
+- [ ] Ajax Pro & Con Creation
+- [ ] Add and Remove Friends
+- [ ] Tweet Results
+
+Bugs to Fix
+- [ ] Table creation is not retaining User ID
+- [ ] Broken Nav Link - Sign Out
+- [ ] Dummy Links Everywhere
+
+
+
+
+
+
 
