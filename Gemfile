@@ -20,7 +20,7 @@ gem 'faker'
 gem 'pry'
 gem 'httparty'
 gem 'json'
-gem 'bcrypt-ruby'
+gem 'bcrypt'
 
 group :test do
   gem 'shoulda-matchers'
